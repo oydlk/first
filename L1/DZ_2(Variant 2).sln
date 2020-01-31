@@ -1,31 +1,19 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29709.97
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DZ_2(Variant 2)", "DZ_2(Variant 2)\DZ_2(Variant 2).vcxproj", "{6B6DE4F1-4344-4D74-8091-9BF62F38ADE7}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6B6DE4F1-4344-4D74-8091-9BF62F38ADE7}.Debug|x64.ActiveCfg = Debug|x64
-		{6B6DE4F1-4344-4D74-8091-9BF62F38ADE7}.Debug|x64.Build.0 = Debug|x64
-		{6B6DE4F1-4344-4D74-8091-9BF62F38ADE7}.Debug|x86.ActiveCfg = Debug|Win32
-		{6B6DE4F1-4344-4D74-8091-9BF62F38ADE7}.Debug|x86.Build.0 = Debug|Win32
-		{6B6DE4F1-4344-4D74-8091-9BF62F38ADE7}.Release|x64.ActiveCfg = Release|x64
-		{6B6DE4F1-4344-4D74-8091-9BF62F38ADE7}.Release|x64.Build.0 = Release|x64
-		{6B6DE4F1-4344-4D74-8091-9BF62F38ADE7}.Release|x86.ActiveCfg = Release|Win32
-		{6B6DE4F1-4344-4D74-8091-9BF62F38ADE7}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {62D3A734-DC33-4464-9157-049670EEDD4F}
-	EndGlobalSection
-EndGlobal
+#include <stdio.h>
+#include <math.h>
+
+float f(float x) {
+    return ((sqrtf(x*x+1) - 1)/2 + x);
+}
+
+
+float Rosenbrock2d(float x, float y) {
+    return (100 * powf(x*x - y, 2) + powf(x - 1, 2));
+}
+
+
+int main() {
+    printf("%.6f", f(1));
+    printf("\n");
+    printf("%.6f", Rosenbrock2d(2, 1));
+    return 0;
+}
