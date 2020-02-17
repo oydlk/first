@@ -8,9 +8,9 @@ int main()
     printf("Type int - %lu bytes \n", sizeof(int));
     printf("Type long int - %lu bytes \n", sizeof(long int));
 
-    #ifdef LLONG_MAX
+    ifdef LLONG_MAX
         printf("Type long long int - %lu bytes \n", sizeof(long long int));
-    #endif
+    endif
 
     return 0;
 }
