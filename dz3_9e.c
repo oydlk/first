@@ -11,8 +11,17 @@ double Counter2(double x){
     f = x;
     return f;
 }
+double Checker(double x, double a){
+    int res;
+    if (x<0){
+        return res = Counter1(x,a);
+    }
+    else {
+        return res = Counter2(x);
+    }
+}
 int main(){
-    double x, a, res;
+    double x, a,ch;
     
     printf("x= ");
     
@@ -22,14 +31,7 @@ int main(){
     
     scanf("%lf",&a);
     
-    res=0;
+    ch = Checker(x,a)
     
-    if (x<0){
-        res = Counter1(x,a);
-    }
-    else{
-        res = Counter2(x);
-    }
-
-    printf("f = %le", res);
+    printf("f = %le", ch);
 }
