@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-double Abs(double x)
+double Module(double x)
 {
     if (x >= 0)
         return x;
@@ -25,14 +25,14 @@ int main()
 
     int i = 1;
 
-    double dy = 2 * (pow(x, i) / i);
+    double func = 2 * (pow(x, i) / i);
 
-    while (Abs(dy) >= eps)
+    while (Module(func) >= eps)
     {
-        res += dy;
+        res += func;
         i += 2;
 
-        dy = 2 * (pow(x, i) / i);
+        func = 2 * (pow(x, i) / i);
 
     }
 
