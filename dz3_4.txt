@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()
+{
+    double a = -1000;
+    int i = 0;
+    double mylist[8] = {1,2,-5,0,-7,0,-0,1231,0};
+    while ( i < 8)
+    {
+
+        if (mylist[i]<0)
+        {
+    if (mylist[i+1]==0)
+    {
+              if (a<mylist[i])
+                {
+                  a = mylist[i];
+                }
+    }
+        }
+    i++;
+    }
+    printf("%lf", a);
+}
