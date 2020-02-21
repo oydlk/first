@@ -5,12 +5,12 @@
 
 int main()
 {
-	int a, b, c, res;
+	long int a, b, c, res;
 	printf("enter three numbers ");
 	scanf("%d,%d,%d", &a, &b, &c);
-	int e1, e2;
-	e1 = 2 ^ 10;
-	e2 = 2 ^ 21;
+	long int e1, e2;
+	e1 = pow(2,10);
+	e2 = pow(2,21);
 	if (abs(a+b+c)<e1)
 	{
 		res = a * b * c;
