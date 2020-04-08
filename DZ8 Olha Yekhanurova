@@ -1,0 +1,84 @@
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+#include <stdio.h>
+using namespace std;
+class rational
+{
+private:
+    int nominator;
+    int denominator;
+public:
+    rational() : nominator(1), denominator(1)
+    {}
+    rational(int n, int d) : nominator(n) {
+        if (d == 0)
+        {
+            cout << "ERROR!" << endl;
+        }
+        else
+        {
+            denominator = d;
+        }
+    }
+
+    rational operator * (rational temp)
+    {
+        rational buffer;
+        buffer.nominator = nominator * temp.nominator;
+        buffer.denominator = denominator * temp.denominator;
+        return buffer;
+    }
+
+    rational operator + (rational temp)
+    {
+        rational buffer;
+        buffer.nominator = nominator * temp.denominator + denominator * temp.nominator;
+        buffer.denominator = denominator * temp.denominator;
+        return buffer;
+    }
+
+    rational operator = (rational temp)
+    {
+        rational buffer;
+        nominator = temp.nominator;
+        denominator = temp.denominator;
+        return rational(nominator, denominator);
+    }
+
+private:
+    void Cancellation()
+    {
+        if (nominator != 0)
+        {
+            int d = denominator,
+                n = nominator,
+                ost = d % n;
+
+            while (ost != 0)
+            {
+                d = n; n = ost;
+                ost = d % n;
+            }
+            int nsd = n;
+            if (nsd != 1)
+            {
+                nominator /= nsd; denominator /= nsd;
+            }
+        }
+    }
+
+
+
+};
+int main()
+{
+	int a,b;
+	cout << "Input nominator:"<< endl;
+	cin >>a;
+	cout << "Input denominator:"<< endl;
+	cin >> b;
+    rational d1(a, b);
+    rational d2 ()
+    system("PAUSE");
+}
