@@ -1,0 +1,78 @@
+//8
+#include <iostream>
+#include <stdio.h>
+
+using namespace std;
+
+
+float next_one(int n, double res)
+{
+    int i=0;
+    
+    float resprev=res;
+    float rescur=1;
+    for (i=0; i<n; i=i+1)
+    {
+        // ФУНКЦИЯ !!
+        //в нашем случае функция: a(i+1)=2/(3*a(i)+6) +a(i)
+        rescur=resprev+2/(resprev*3 +6);
+        resprev=rescur;
+        cout<<resprev<<endl;
+        cout<<rescur<<endl;
+    }
+    return rescur;
+}
+
+int main()
+{
+    int n;
+    float res;
+    cout<<"введите номер члена последовательности   ";
+    cin>>n;
+    cout<<"введите значение первого члена (не 0)   ";
+    cin>>res;
+    cout<<res<<"   "<<n;
+    cout<<" для последовательности a(i+1)=2/(3*a(i)+6) +a(i)   ";
+    
+    float r = next_one(n, res);
+    cout<<r;
+   
+    
+}
+
+
+//17 (i)
+
+#include <iostream>
+#include <stdio.h>
+#include <cmath>
+
+using namespace std;
+
+float recur (float eps, float x)
+{
+    float s=0;
+    float k=1;
+    int i=2;
+    int znak=-1;
+    while (abs(k)>eps)
+    {
+        s=s+k;
+        k=znak*i*x;
+        i=i+1;
+        znak=znak*(-1);
+        
+    }
+    return s;
+}
+
+int main()
+{
+    float eps, x;
+    cout<<" введіть значення епсілон (<1)  ";
+    cin>>eps;
+    cout<<" введіть значення х (|x|<1) ";
+    cin>>x;
+    float res=recur(eps, x);
+    cout<<"1/(x+1)ˆ2 ~ "<<res<<"   ";
+}
