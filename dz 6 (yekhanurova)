@@ -1,0 +1,115 @@
+//1, дз6
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+float sumfunc(float arr[], int n)
+{
+    float sum=0;
+    
+    for (int i=0; i<n; i++)
+    {
+        float add1= pow(100*(arr[i+1])-pow(arr[i],2),2);
+        float add2= pow((arr[i]-1),2);
+        sum=sum+add1+add2;
+    }
+    return sum;
+}
+
+
+int main()
+{
+    int a;
+    cout<<" введіть кількість елементів масиву   "<<endl;
+    cin>> a;
+    float m [a];
+    for (int i=0; i<a; i++)
+    {
+        cout << " введіть "<<i<<" -й елемент массиву    ";
+        cin>> m[i];
+        
+    }
+
+    float sum = sumfunc (m, a);
+    cout<<" sum="<<sum;
+}
+
+
+
+
+
+
+//7 в, дз 6
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int fibonachicheck(float m[], int N)
+{
+    float maximfrom_m= max(m[0],m[N-1]);
+    
+    //cout<<maximfrom_m<<" максімальное в лісте"<<endl;
+    
+    //число фібонначі не більше ніж максімальне число у масиві m
+    int a1=1, a2=1, a3;
+    int i=0;
+    while (a2<maximfrom_m)
+    {
+        a3=a2;
+        a2=a1+a2;
+        a1=a3;
+        i++;
+    }
+    i=i+2; //додаємо до і а1 та а2
+    //cout<<i<<"   "<< a2;
+    
+    //массив чисел фіб потрібної довжини
+    int fib[i];
+    
+    int l1=1, l2=1, l3;
+    for (int l=0; l<i; l++)
+    {
+        fib[l]=l1;
+        cout<<l1<<endl;
+        l3=l2;
+        l2=l1+l2;
+        l1=l3;
+    }
+    
+    //перевірка скільки чисел є числам фібоначі
+    int num=0;
+    for (int j=0; j<N; j++) //пробігаємо по індексам масиву m
+    {
+        for (int k=0; k<i; k++) //пробігаємося по індексам масиву з числами фіб
+        {
+            if (m[j]==fib[k])
+            {
+                cout<<"  число фібоначі в масиві   "<< fib[k]<<endl;
+                num++;
+            }
+        }
+    }
+    cout<<" всього чисел фібоначчі в масиві  ";
+    return num;
+     
+}
+
+int main()
+{
+    //введення масиву m розміру а
+    int a;
+    cout<<" введіть кількість елементів масиву   "<<endl;
+    cin>> a;
+    float m [a];
+    for (int i=0; i<a; i++)
+    {
+        cout << " введіть "<<i<<" -й елемент массиву    ";
+        cin>> m[i];
+        
+    }
+    
+    cout<< fibonachicheck(m,a)<<endl;
+}
